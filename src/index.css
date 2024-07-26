@@ -8,4 +8,39 @@ form {
 	}
 }
 
+@layer animation {
+	body {
+		background: linear-gradient(55deg, rgb(46, 0, 0) 45%, white 65%);
+		background-size: 500%;
+		background-position-x: left;
+		animation: slide 1.15s linear forwards;
+
+		> div {
+			animation: zoomOut 1.65s ease-in-out forwards;
+		}
+	}
+
+	@keyframes zoomOut {
+		0% {
+			clip-path: circle(0%);
+			opacity: 0;
+		}
+		28.5% {
+			clip-path: circle(0%);
+		}
+		80% {
+			opacity: 1;
+		}
+		100% {
+			clip-path: circle(100%);
+		}
+	}
+
+	@keyframes slide {
+		to {
+			background-position-x: right;
+		}
+	}
+}
+
 @tailwind utilities;
