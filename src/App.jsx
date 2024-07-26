@@ -109,6 +109,18 @@ function App() {
 					"mt-4 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-red-950 rounded-lg max-w-96 overflow-clip relative shadow-2xl"
 				}
 			>
+				<div
+					className={`absolute inset-0 bg-white grid place-content-center text-center ${
+						questionsRemaining && "hidden"
+					}`}
+					id="summary"
+				>
+					<h2>Congratulations!</h2>
+					<p className="text-balance">You have completed the quiz!</p>
+					<p className="text-balance">
+						Great job! You got {correctCount} questions correct!
+					</p>
+				</div>
 				<form
 					onSubmit={(e) => {
 						handleUserSubmit(e);
@@ -128,9 +140,10 @@ function App() {
 						id="email"
 						value={email}
 						onChange={handleEmailUpdate}
-						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:border-indigo-700 rounded w-full transition-colors mb-3 p-2"
+						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:outline-indigo-700 outline-offset-2 rounded w-full transition-colors mb-3 p-2"
 						placeholder="Email"
 						required
+						autoComplete="none"
 					/>
 					<label htmlFor="password">Enter a password:</label>
 					<input
@@ -139,7 +152,7 @@ function App() {
 						id="password"
 						value={password}
 						onChange={handlePasswordUpdate}
-						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:border-indigo-700 rounded w-full transition-colors mb-2 p-2"
+						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:outline-indigo-700 outline-offset-2 rounded w-full transition-colors mb-2 p-2"
 						placeholder="Password"
 						required
 						autoFocus
@@ -150,18 +163,7 @@ function App() {
 						value="Create user!"
 					/>
 				</form>
-				<div
-					className={`absolute inset-0 bg-white grid place-content-center text-center ${
-						questionsRemaining && "hidden"
-					}`}
-					id="summary"
-				>
-					<h2>Congratulations!</h2>
-					<p className="text-balance">You have completed the quiz!</p>
-					<p className="text-balance">
-						Great job! You got {correctCount} questions correct!
-					</p>
-				</div>
+
 				<h2 className="text-red-800 text-2xl font-black flex gap-3 justify-between">
 					Love Quiz:
 					<span className="flex text-lg items-end">
@@ -172,7 +174,7 @@ function App() {
 					You have {correctCount} answers correct so far.
 				</span>
 				<p className="mt-3 mb-6">{questionText}</p>
-				<div className={"grid grid-cols-2 grid-rows-2 gap-3 mt-3"}>
+				<div className={"grid sm:grid-cols-2 gap-3 mt-3"}>
 					<RadioGroup
 						value={selectedAnswer}
 						onChange={(e) => setSelectedAnswer(e.target.value)}
@@ -190,7 +192,7 @@ function App() {
 					<button
 						onClick={handleSubmit}
 						disabled={isPending}
-						className="col-span-full py-3 px-6 font-bold rounded text-center border-2 border-green-950 hover:border-green-400 hover:bg-green-950 hover:text-white active:border-orange-700 active:bg-orange-950 active:scale-95 transition-all cursor-pointer"
+						className="col-span-full py-3 px-6 font-bold rounded text-center border-2 border-green-950 hover:border-green-400 hover:bg-green-950 hover:text-white active:border-orange-700 active:bg-orange-950 active:scale-95 active:-translate-y-1 transition-all cursor-pointer"
 					>
 						{submitBtnText()}
 					</button>
