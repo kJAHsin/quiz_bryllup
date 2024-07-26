@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+
+form {
+	.selected {
+		background-color: darkgreen;
+		color: white;
+	}
+}
+
+@tailwind utilities;
