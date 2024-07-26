@@ -126,7 +126,7 @@ function App() {
 						handleUserSubmit(e);
 					}}
 					id="signup"
-					className={`absolute inset-0 bg-white flex flex-col gap-1 p-3 pt-9 ${
+					className={`absolute inset-0 bg-white flex flex-col gap-1 pt-4 pb-8 px-6 ${
 						isUser && "hidden"
 					}`}
 				>
@@ -182,7 +182,7 @@ function App() {
 						{answerArray.map((ans) => (
 							<Radio
 								disabled={isPending}
-								key={answerArray.indexOf(ans)}
+								key={ID.unique()}
 								value={ans}
 							>
 								{ans}
