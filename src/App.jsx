@@ -140,7 +140,7 @@ function App() {
 						value={password}
 						onChange={handlePasswordUpdate}
 						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:border-indigo-700 rounded w-full transition-colors mb-2 p-2"
-						placeholder="user name"
+						placeholder="Password"
 						required
 						autoFocus
 					/>
@@ -158,8 +158,11 @@ function App() {
 				>
 					<h2>Congratulations!</h2>
 					<p className="text-balance">You have completed the quiz!</p>
+					<p className="text-balance">
+						Great job! You got {correctCount} questions correct!
+					</p>
 				</div>
-				<h2 className="text-red-800 text-2xl font-black flex justify-between">
+				<h2 className="text-red-800 text-2xl font-black flex gap-3 justify-between">
 					Love Quiz:
 					<span className="flex text-lg items-end">
 						Question #{currentQuestion + 1} of {questionArr.length}
