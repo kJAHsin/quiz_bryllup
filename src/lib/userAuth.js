@@ -8,12 +8,10 @@ const client = new Client()
 
 const account = new Account(client);
 
-export async function createAccount({ email, password }) {
+export async function createAccount({ email, password, userID }) {
 	try {
-		const userID = ID.unique();
 		const userAccount = await account.create(userID, email, password);
 		if (userAccount) {
-			console.log("Account created!");
 			return login({
 				userID,
 				email,
@@ -29,7 +27,6 @@ export async function createAccount({ email, password }) {
 
 export async function login({ email, password }) {
 	try {
-		console.log("LOGGED IN!");
 		return await account.createEmailPasswordSession(email, password);
 	} catch (err) {
 		console.error(err);
