@@ -128,8 +128,8 @@ function App() {
 					<h2>Congratulations!</h2>
 					<p className="text-balance">You have completed the quiz!</p>
 					<p className="text-balance">
-						{switchSummaryText()} You got {correctCount} questions
-						correct!
+						{switchSummaryText()} <br />
+						You got {correctCount} questions correct!
 					</p>
 				</div>
 				<form
@@ -175,12 +175,12 @@ function App() {
 					/>
 				</form>
 
-				<h2 className="text-red-800 text-2xl font-black flex gap-3 justify-between">
+				<h1 className="text-red-800 text-2xl font-black flex gap-3 justify-between">
 					Love Quiz:
 					<span className="flex text-lg items-end">
 						Question #{currentQuestion + 1} of {questionArr.length}
 					</span>
-				</h2>
+				</h1>
 				<span className="text-center block">
 					You have {correctCount} answers correct so far.
 				</span>
