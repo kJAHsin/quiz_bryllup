@@ -1,4 +1,4 @@
-import { Client, Account, ID } from "appwrite";
+import { Client, Account } from "appwrite";
 
 const PROJECT_ID = "66a34bdf0001b827496a";
 

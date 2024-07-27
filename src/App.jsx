@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Radio, { RadioGroup } from "./components/Radio";
 import { db } from "./lib/database";
-import { createAccount, login } from "./lib/userAuth";
+import { createAccount } from "./lib/userAuth";
 import { ID } from "appwrite";
 import { updateScoreForUser } from "./lib/updateScore";
 
