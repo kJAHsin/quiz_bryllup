@@ -3,6 +3,7 @@ import Radio, { RadioGroup } from "./components/Radio";
 import { db } from "./lib/database";
 import { createAccount, login } from "./lib/userAuth";
 import { ID } from "appwrite";
+import { updateScoreForUser } from "./lib/updateScore";
 
 function App() {
 	// state
@@ -19,11 +20,6 @@ function App() {
 	const [correctCount, setCorrectCount] = useState(0);
 	const [questionsRemaining, setQuestionsRemaining] = useState(false);
 	const [isPending, setIsPending] = useState(true);
-
-	function sendResults() {
-		if (questionsRemaining <= 0) {
-		}
-	}
 
 	async function getQuestions() {
 		const res = await db.quiz.list();
@@ -75,6 +71,8 @@ function App() {
 	function handleUserSubmit(e) {
 		e.preventDefault();
 
+		const userID = ID.unique();
+
 		if (
 			password == null ||
 			password === "" ||
@@ -84,7 +82,7 @@ function App() {
 			return;
 
 		setIsUser(true);
-		createAccount({ email, password });
+		createAccount({ email, password, userID });
 	}
 
 	const switchSummaryText = () => {
@@ -116,6 +114,12 @@ function App() {
 			setQuestionsRemaining(false);
 		}
 	}, [questionArr, currentQuestion]);
+
+	useEffect(() => {
+		if (questionsRemaining < 1 && email && correctCount) {
+			updateScoreForUser({ userID: email, score: correctCount });
+		}
+	}, [questionsRemaining]);
 
 	return (
 		<>
@@ -187,7 +191,11 @@ function App() {
 					</span>
 				</h1>
 				<p className="mt-3 mb-6">{questionText}</p>
-				<div className={"grid gap-3 mt-3"}>
+				<div
+					className={`grid gap-3 mt-3 ${
+						isPending && "pointer-events-none"
+					}`}
+				>
 					<RadioGroup
 						value={selectedAnswer}
 						onChange={(e) => setSelectedAnswer(e.target.value)}
