@@ -193,7 +193,7 @@ function App() {
 				<p className="mt-3 mb-6">{questionText}</p>
 				<div
 					className={`grid gap-3 mt-3 ${
-						isPending && "pointer-events-none"
+						isPending && "pointer-events-none opacity-35"
 					}`}
 				>
 					<RadioGroup
