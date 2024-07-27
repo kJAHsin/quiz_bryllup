@@ -62,11 +62,9 @@ function App() {
 
 	function handleEmailUpdate(e) {
 		setEmail(e.target.value);
-		console.log(email);
 	}
 	function handlePasswordUpdate(e) {
 		setPassword(e.target.value);
-		console.timeLog(password);
 	}
 
 	function handleUserSubmit(e) {
@@ -83,6 +81,18 @@ function App() {
 		setIsUser(true);
 		createAccount({ email, password });
 	}
+
+	const switchSummaryText = () => {
+		return correctCount === questionArr.length
+			? "Perfect!"
+			: correctCount > questionArr.length - 5
+			? "Good work!"
+			: correctCount > questionArr.length - 10
+			? "Pretty Good :)"
+			: correctCount > questionArr.length / 3
+			? "Not too bad!"
+			: "Room to learn more!";
+	};
 
 	useEffect(() => {
 		getQuestions();
@@ -118,7 +128,8 @@ function App() {
 					<h2>Congratulations!</h2>
 					<p className="text-balance">You have completed the quiz!</p>
 					<p className="text-balance">
-						Great job! You got {correctCount} questions correct!
+						{switchSummaryText()} You got {correctCount} questions
+						correct!
 					</p>
 				</div>
 				<form
