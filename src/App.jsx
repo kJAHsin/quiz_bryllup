@@ -20,6 +20,11 @@ function App() {
 	const [questionsRemaining, setQuestionsRemaining] = useState(false);
 	const [isPending, setIsPending] = useState(true);
 
+	function sendResults() {
+		if (questionsRemaining <= 0) {
+		}
+	}
+
 	async function getQuestions() {
 		const res = await db.quiz.list();
 		setQuestionArr(res.documents);
@@ -116,7 +121,7 @@ function App() {
 		<>
 			<div
 				className={
-					"mt-4 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-red-950 rounded-lg max-w-96 overflow-clip relative shadow-2xl"
+					"mt-auto md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-red-950 rounded-lg max-w-96 overflow-clip relative shadow-2xl"
 				}
 			>
 				<div
@@ -137,11 +142,11 @@ function App() {
 						handleUserSubmit(e);
 					}}
 					id="signup"
-					className={`absolute inset-0 bg-white flex flex-col gap-1 pt-4 pb-8 px-6 ${
+					className={`absolute inset-0 bg-white flex flex-col px-6 pt-10 pb-20 ${
 						isUser && "hidden"
 					}`}
 				>
-					<h2 className="text-3xl text-center font-bold mb-3 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-fuchsia-600 after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance">
+					<h2 className="text-3xl text-center font-bold mb-6 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-fuchsia-600 after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance">
 						Create a password to play!
 					</h2>
 					<label htmlFor="email">Enter your email:</label>
@@ -169,7 +174,7 @@ function App() {
 						autoFocus
 					/>
 					<input
-						className="col-span-full mt-2 py-2 shadow-md border-2 border-slate-400 hover:border-slate-900 hover:bg-pink-600 hover:text-white focus-within:border-indigo-700 active:border-pink-600 active:-translate-y-1 active:scale-[0.97] rounded text-xl cursor-pointer transition-all duration-300"
+						className="mt-auto col-span-full py-4 shadow-md border-2 bg-pink-100 border-slate-400 hover:border-slate-900 hover:bg-pink-600 hover:text-white focus-within:border-indigo-700 active:border-pink-600 active:-translate-y-1 active:scale-[0.97] rounded text-xl cursor-pointer transition-all duration-300"
 						type="submit"
 						value="Create user!"
 					/>
@@ -181,11 +186,8 @@ function App() {
 						Question #{currentQuestion + 1} of {questionArr.length}
 					</span>
 				</h1>
-				<span className="text-center block">
-					You have {correctCount} answers correct so far.
-				</span>
 				<p className="mt-3 mb-6">{questionText}</p>
-				<div className={"grid sm:grid-cols-2 gap-3 mt-3"}>
+				<div className={"grid gap-3 mt-3"}>
 					<RadioGroup
 						value={selectedAnswer}
 						onChange={(e) => setSelectedAnswer(e.target.value)}
@@ -203,10 +205,13 @@ function App() {
 					<button
 						onClick={handleSubmit}
 						disabled={isPending}
-						className="col-span-full py-3 px-6 font-bold rounded text-center border-2 border-green-950 hover:border-green-400 hover:bg-green-950 hover:text-white active:border-orange-700 active:bg-orange-950 active:scale-95 active:-translate-y-1 transition-all cursor-pointer"
+						className="col-span-full py-3 px-6 font-bold rounded text-center border-2 bg-green-200 border-green-950 hover:border-green-400 hover:bg-green-950 hover:text-white active:border-orange-700 active:bg-orange-950 active:scale-95 active:-translate-y-1 transition-all cursor-pointer"
 					>
 						{submitBtnText()}
 					</button>
+					<span className="text-center block">
+						You have {correctCount} answers correct so far.
+					</span>
 				</div>
 			</div>
 		</>
