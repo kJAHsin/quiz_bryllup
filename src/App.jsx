@@ -171,7 +171,7 @@ function App() {
 					/>
 				</form>
 
-				<h1 className="text-weddingDarkred text-2xl font-black flex gap-3 justify-between">
+				<h1 className="text-weddingDarkred text-2xl font-black grid gap-3 justify-between">
 					Bryllups Quiz:
 					<span className="flex text-base items-end">
 						Spørsmål #{currentQuestion + 1} av {questionArr.length}
