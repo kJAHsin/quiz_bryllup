@@ -10,7 +10,7 @@ function App() {
 	// state
 	const [isUser, setIsUser] = useState(false);
 	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [password, setPassword] = useState("apassword123");
 	const [questionArr, setQuestionArr] = useState([]);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [questionText, setQuestionText] = useState("");
@@ -52,13 +52,13 @@ function App() {
 	const submitBtnText = () => {
 		switch (hasCorrectAnswer) {
 			case undefined:
-				return "Submit Answer";
+				return "Bekreft Svar";
 			case true:
-				return "Correct!";
+				return "Riktig!";
 			case false:
-				return "Sorry! Wrong!";
+				return "Woops! Feil!";
 			default:
-				return "Submit Answer";
+				return "Bekreft Svar";
 		}
 	};
 
@@ -74,30 +74,24 @@ function App() {
 
 		const userID = ID.unique();
 
-		if (
-			password == null ||
-			password === "" ||
-			email == null ||
-			email === ""
-		)
-			return;
+		if (email == null || email === "") return;
 
 		setIsUser(true);
 		createAccount({ email, password, userID });
 	}
 
-	console.log(listDocs());
+	listDocs().then((res) => console.log(res));
 
 	const switchSummaryText = () => {
 		return correctCount === questionArr.length
-			? "Perfect!"
+			? "Perfekt!"
 			: correctCount > questionArr.length - 5
-			? "Good work!"
+			? "Bra jobba!"
 			: correctCount > questionArr.length - 10
-			? "Pretty Good :)"
+			? "Ganske bra :)"
 			: correctCount > questionArr.length / 3
-			? "Not too bad!"
-			: "Room to learn more!";
+			? "Ikkje verst!"
+			: "Det var nå litt lite!";
 	};
 
 	useEffect(() => {
@@ -128,21 +122,23 @@ function App() {
 		<>
 			<div
 				className={
-					"mt-auto md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-red-950 rounded-lg max-w-96 overflow-clip relative shadow-2xl"
+					"mt-1 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-red-950 rounded-lg max-w-96 overflow-clip relative shadow-2xl"
 				}
 			>
 				<div
-					className={`absolute inset-0 bg-white grid place-content-center text-center ${
+					className={`absolute inset-0 bg-white text-center ${
 						questionsRemaining && "hidden"
 					}`}
 					id="summary"
 				>
-					<h2>Congratulations!</h2>
-					<p className="text-balance">You have completed the quiz!</p>
-					<p className="text-balance">
-						{switchSummaryText()} <br />
-						You got {correctCount} questions correct!
-					</p>
+					<div className="mt-6 mb-auto">
+						<h2>Gratulerer!</h2>
+						<p className="text-balance">Du har fullført Quizen!</p>
+						<p className="text-balance mb-auto">
+							{switchSummaryText()} <br />
+							Du fikk {correctCount} spørsmål riktig!
+						</p>
+					</div>
 				</div>
 				<form
 					onSubmit={(e) => {
@@ -154,9 +150,9 @@ function App() {
 					}`}
 				>
 					<h2 className="text-3xl text-center font-bold mb-6 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-fuchsia-600 after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance">
-						Create a password to play!
+						Skriv inn e-postadressen din for å begynne!
 					</h2>
-					<label htmlFor="email">Enter your email:</label>
+					<label htmlFor="email">Skriv inn email:</label>
 					<input
 						type="email"
 						name="email"
@@ -168,29 +164,17 @@ function App() {
 						required
 						autoComplete="none"
 					/>
-					<label htmlFor="password">Enter a password:</label>
-					<input
-						type="password"
-						name="password"
-						id="password"
-						value={password}
-						onChange={handlePasswordUpdate}
-						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:outline-indigo-700 outline-offset-2 rounded w-full transition-colors mb-2 p-2"
-						placeholder="Password"
-						required
-						autoFocus
-					/>
 					<input
 						className="mt-auto col-span-full py-4 shadow-md border-2 bg-pink-100 border-slate-400 hover:border-slate-900 hover:bg-pink-600 hover:text-white focus-within:border-indigo-700 active:border-pink-600 active:-translate-y-1 active:scale-[0.97] rounded text-xl cursor-pointer transition-all duration-300"
 						type="submit"
-						value="Create user!"
+						value="La oss begynne!"
 					/>
 				</form>
 
 				<h1 className="text-red-800 text-2xl font-black flex gap-3 justify-between">
-					Love Quiz:
+					Bryllups Quiz:
 					<span className="flex text-lg items-end">
-						Question #{currentQuestion + 1} of {questionArr.length}
+						Spørsmål #{currentQuestion + 1} av {questionArr.length}
 					</span>
 				</h1>
 				<p className="mt-3 mb-6">{questionText}</p>
@@ -221,7 +205,7 @@ function App() {
 						{submitBtnText()}
 					</button>
 					<span className="text-center block">
-						You have {correctCount} answers correct so far.
+						Du har svart riktig på {correctCount} spørsmål.
 					</span>
 				</div>
 			</div>
