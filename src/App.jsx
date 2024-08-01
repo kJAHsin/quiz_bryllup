@@ -177,7 +177,7 @@ function App() {
 						Spørsmål #{currentQuestion + 1} av {questionArr.length}
 					</span>
 				</h1>
-				<p className="mt-3 mb-6">{questionText}</p>
+				<p className="mt-3 mb-6 text-lg">{questionText}</p>
 				<div
 					className={`grid gap-3 mt-3 ${
 						isPending && "pointer-events-none opacity-35"
