@@ -126,19 +126,41 @@ function App() {
 				}
 			>
 				<div
-					className={`absolute inset-0 bg-white text-center ${
+					className={`absolute inset-0 px-4 bg-white text-center ${
 						questionsRemaining && "hidden"
 					}`}
 					id="summary"
 				>
-					<div className="mt-6 mb-auto">
-						<h2>Gratulerer!</h2>
-						<p className="text-balance">Du har fullført Quizen!</p>
-						<p className="text-balance mb-auto">
-							{switchSummaryText()} <br />
-							Du fikk {correctCount} spørsmål riktig!
+					<div className="mt-10 mb-auto">
+						<h2 className="text-4xl font-semibold text-weddingPrimary">
+							Gratulerer!
+						</h2>
+						<p className="text-balance font-semibold text-lg mt-4">
+							Du har fullført Quizen!
+						</p>
+						<p className="text-balance mt-16 mb-auto text-xl">
+							Du fikk{" "}
+							<span
+								className={`font-bold 
+									${
+										correctCount > 9
+											? "text-weddingGreen"
+											: correctCount > 6
+											? "text-weddingPrimary"
+											: "text-weddingDarkred"
+									}`}
+							>
+								{correctCount}
+							</span>{" "}
+							spørsmål riktig! <br />
+							{switchSummaryText()}
 						</p>
 					</div>
+					<img
+						className="mt-10 rounded-lg border-2 border-weddingPrimary shadow-weddingPrimary shadow-md"
+						src="src\assets\20220426_204602.jpg"
+						alt=""
+					/>
 				</div>
 				<form
 					onSubmit={(e) => {
