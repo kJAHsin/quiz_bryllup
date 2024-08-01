@@ -150,9 +150,9 @@ function App() {
 					}`}
 				>
 					<h2 className="text-3xl text-center font-bold mb-20 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-weddingPrimary after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance cursor-default">
-						Skriv inn e-postadressen din for å begynne!
+						HVOR MYE KAN DU OM EIVIND OG HELENE?!
 					</h2>
-					<label htmlFor="email">Skriv inn email:</label>
+					<label htmlFor="email">Din email:</label>
 					<input
 						type="email"
 						name="email"
