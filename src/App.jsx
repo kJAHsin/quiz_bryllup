@@ -149,10 +149,12 @@ function App() {
 						isUser && "hidden"
 					}`}
 				>
-					<h2 className="text-3xl text-center font-bold mt-8 mb-20 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-weddingPrimary after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance cursor-default">
+					<h2 className="text-3xl text-center font-bold mt-24 mb-20 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-weddingPrimary after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance cursor-default">
 						Hvor mye kan du om Eivind og Helene?
 					</h2>
-					<label htmlFor="email">Din email:</label>
+					<label className="mt-8" htmlFor="email">
+						Din email:
+					</label>
 					<input
 						type="email"
 						name="email"
