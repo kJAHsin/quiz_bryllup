@@ -122,7 +122,7 @@ function App() {
 		<>
 			<div
 				className={
-					"mt-1 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-weddingPrimary rounded-lg max-w-96 overflow-clip relative shadow-2xl"
+					"mt-4 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-weddingPrimary rounded-lg max-w-96 overflow-clip relative shadow-2xl"
 				}
 			>
 				<div
