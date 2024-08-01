@@ -122,7 +122,7 @@ function App() {
 		<>
 			<div
 				className={
-					"mt-1 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-red-950 rounded-lg max-w-96 overflow-clip relative shadow-2xl"
+					"mt-1 md:mt-[5vw] mb-auto py-8 px-6 bg-fuchsia-50 border-2 border-weddingPrimary rounded-lg max-w-96 overflow-clip relative shadow-2xl"
 				}
 			>
 				<div
@@ -149,7 +149,7 @@ function App() {
 						isUser && "hidden"
 					}`}
 				>
-					<h2 className="text-3xl text-center font-bold mb-6 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-fuchsia-600 after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance">
+					<h2 className="text-3xl text-center font-bold mb-20 pb-3 relative after:absolute after:content-[''] after:top-auto after:right-5 after:-bottom-1 after:left-5 after:h-1 after:bg-weddingPrimary after:rounded-full after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:ease-out text-balance cursor-default">
 						Skriv inn e-postadressen din for å begynne!
 					</h2>
 					<label htmlFor="email">Skriv inn email:</label>
@@ -159,19 +159,19 @@ function App() {
 						id="email"
 						value={email}
 						onChange={handleEmailUpdate}
-						className="outline-none border-2 border-slate-400 hover:border-slate-800 focus-visible:outline-indigo-700 outline-offset-2 rounded w-full transition-colors mb-3 p-2"
+						className="outline-none border-2 border-weddingPrimary hover:border-weddingOrange focus-visible:outline-weddingGreen outline-offset-2 rounded w-full transition-colors mb-3 p-2"
 						placeholder="Email"
 						required
 						autoComplete="none"
 					/>
 					<input
-						className="mt-auto col-span-full py-4 shadow-md border-2 bg-pink-100 border-slate-400 hover:border-slate-900 hover:bg-pink-600 hover:text-white focus-within:border-indigo-700 active:border-pink-600 active:-translate-y-1 active:scale-[0.97] rounded text-xl cursor-pointer transition-all duration-300"
+						className="mt-auto col-span-full py-4 shadow-md border-2 bg-pink-100 border-slate-400 hover:border-weddingDarkred hover:bg-weddingPrimary hover:text-white focus-within:border-weddingGreen active:border-weddingOrange active:-translate-y-1 active:scale-[0.97] rounded text-xl cursor-pointer transition-all duration-300"
 						type="submit"
 						value="La oss begynne!"
 					/>
 				</form>
 
-				<h1 className="text-red-800 text-2xl font-black flex gap-3 justify-between">
+				<h1 className="text-weddingDarkred text-2xl font-black flex gap-3 justify-between">
 					Bryllups Quiz:
 					<span className="flex text-lg items-end">
 						Spørsmål #{currentQuestion + 1} av {questionArr.length}
@@ -200,7 +200,7 @@ function App() {
 					<button
 						onClick={handleSubmit}
 						disabled={isPending}
-						className="col-span-full py-3 px-6 font-bold rounded text-center border-2 bg-green-200 border-green-950 hover:border-green-400 hover:bg-green-950 hover:text-white active:border-orange-700 active:bg-orange-950 active:scale-95 active:-translate-y-1 transition-all cursor-pointer"
+						className="col-span-full py-3 px-6 font-bold rounded text-center border-2 bg-weddingGreen border-weddingDarkred hover:border-green-400 hover:bg-green-950 hover:text-white active:border-weddingOrange active:bg-weddingPrimary active:scale-95 active:-translate-y-1 transition-all cursor-pointer"
 					>
 						{submitBtnText()}
 					</button>
