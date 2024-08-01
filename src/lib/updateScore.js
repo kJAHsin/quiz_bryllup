@@ -25,7 +25,6 @@ export async function updateScoreForUser({ userID, score }) {
 		);
 
 		if (updatedDocument) {
-			console.log(updatedDocument);
 			return updatedDocument;
 		}
 	} catch (err) {
