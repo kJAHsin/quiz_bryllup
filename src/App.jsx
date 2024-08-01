@@ -86,7 +86,7 @@ function App() {
 		createAccount({ email, password, userID });
 	}
 
-	listDocs();
+	console.log(listDocs());
 
 	const switchSummaryText = () => {
 		return correctCount === questionArr.length
