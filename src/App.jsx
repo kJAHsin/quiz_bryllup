@@ -4,6 +4,7 @@ import { db } from "./lib/database";
 import { createAccount } from "./lib/userAuth";
 import { ID } from "appwrite";
 import { updateScoreForUser } from "./lib/updateScore";
+import { result as listDocs } from "./lib/listDocs";
 
 function App() {
 	// state
@@ -84,6 +85,8 @@ function App() {
 		setIsUser(true);
 		createAccount({ email, password, userID });
 	}
+
+	listDocs();
 
 	const switchSummaryText = () => {
 		return correctCount === questionArr.length

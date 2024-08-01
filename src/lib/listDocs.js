@@ -7,7 +7,5 @@ const client = new Client()
 
 const db = new Databases(client);
 
-const result = async () =>
+export const result = async () =>
 	await db.listDocuments("quiz-questions", "66a41e950014df0e4f65");
-
-console.log(result);
