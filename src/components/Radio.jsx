@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 
 const RadioContext = createContext();
 
-export default function Radio({ children, ...props }) {
+export default function Radio({ children, correctAnswer, ...props }) {
 	const { value, onChange } = useContext(RadioContext);
 
 	return (
