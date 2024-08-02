@@ -21,6 +21,7 @@ function App() {
 	const [correctCount, setCorrectCount] = useState(0);
 	const [questionsRemaining, setQuestionsRemaining] = useState(false);
 	const [isPending, setIsPending] = useState(true);
+	const [showCorrect, setShowCorrect] = useState(false);
 
 	async function getQuestions() {
 		const res = await db.quiz.list();
@@ -32,6 +33,7 @@ function App() {
 		setIsPending(true);
 		if (selectedAnswer !== correctAnswer) {
 			setHasCorrectAnswer(false);
+			setShowCorrect(true);
 		} else {
 			setHasCorrectAnswer(true);
 			setCorrectCount((prev) => prev + 1);
@@ -45,7 +47,8 @@ function App() {
 				setQuestionsRemaining(false);
 			}
 			setIsPending(false);
-		}, 1200);
+			setShowCorrect(false);
+		}, 2000);
 		setSelectedAnswer(null);
 	}
 

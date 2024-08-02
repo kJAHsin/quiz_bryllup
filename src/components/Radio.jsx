@@ -8,11 +8,15 @@ export default function Radio({ children, ...props }) {
 	return (
 		<label
 			className={`
-				grid place-content-center py-3 px-6 font-bold rounded text-center border-2 border-green-950 hover:border-green-400 hover:bg-green-950 hover:text-white transition-all cursor-pointer 
+				grid place-content-center py-3 px-6 font-bold rounded text-center border-2 border-weddingDarkred hover:border-weddingGreen hover:bg-weddingPrimary hover:text-white transition-all cursor-pointer 
 				${
 					value === props.value &&
-					"border-orange-700 bg-orange-950 hover:border-blue-500 hover:bg-orange-800 text-white scale-105"
-				}`}
+					"border-weddingOrange bg-weddingDarkred hover:border-weddingGreen hover:weddingPrimary text-white scale-105"
+				} ${
+				value === correctAnswer &&
+				showCorrect &&
+				"outline-2 outline-weddingGreen bg-weddingGreen text-white"
+			}`}
 		>
 			<input
 				type="radio"
