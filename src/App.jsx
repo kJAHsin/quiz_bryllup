@@ -158,7 +158,7 @@ function App() {
 					</div>
 					<img
 						className="mt-10 rounded-lg border-2 border-weddingPrimary shadow-weddingPrimary shadow-md"
-						src="src\assets\20220426_204602.jpg"
+						src="/20220426_204602.jpg"
 						alt=""
 					/>
 				</div>
