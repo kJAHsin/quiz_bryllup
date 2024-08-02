@@ -20,7 +20,7 @@ export default function Radio({
 				} ${
 				value === correctAnswer &&
 				showCorrect &&
-				"outline-2 outline-weddingGreen bg-weddingGreen text-white"
+				"outline outline-2 outline-weddingGreen bg-weddingGreen text-white"
 			}`}
 		>
 			<input
